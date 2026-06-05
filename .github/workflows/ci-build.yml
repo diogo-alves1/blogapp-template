@@ -44,7 +44,7 @@ jobs:
         run: npm run e2e
 
       - name: Fallow analysis
-        uses: fallow-rs/fallow@v2
+        uses: fallow-rs/fallow@v2.89.0
         with:
           format: sarif
 
