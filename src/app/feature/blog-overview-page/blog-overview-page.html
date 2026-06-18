@@ -1,0 +1,7 @@
+<div class="blog-grid">
+  @for (blog of blogs; track blog.id) {
+    <app-blog-card [model]="blog" (likeClicked)="toggleLike($event)"> </app-blog-card>
+  } @empty {
+    <p>Keine Blog-Posts vorhanden.</p>
+  }
+</div>
