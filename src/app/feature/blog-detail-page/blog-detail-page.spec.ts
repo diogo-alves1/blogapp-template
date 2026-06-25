@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { ActivatedRoute, provideRouter } from '@angular/router';
 
 import { BlogDetailPage } from './blog-detail-page';
 
@@ -10,15 +10,35 @@ describe('BlogDetailPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [BlogDetailPage],
-      providers: [provideRouter([])],
+      providers: [
+        provideRouter([]),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              data: {
+                blog: {
+                  id: 1,
+                  title: 'Test',
+                  contentPreview: 'Test',
+                  author: 'Tester',
+                  likes: 0,
+                  comments: 0,
+                  likedByMe: false,
+                  createdByMe: false,
+                  createdAt: '',
+                  updatedAt: '',
+                },
+              },
+            },
+          },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(BlogDetailPage);
-
-    fixture.componentRef.setInput('id', '1');
-
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
