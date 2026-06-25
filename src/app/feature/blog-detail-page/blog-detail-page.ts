@@ -1,6 +1,7 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { BlogService } from '../../shared/blog';
+import { Blog } from '../../core/utils/blog-model';
 
 @Component({
   selector: 'app-blog-detail-page',
@@ -10,9 +11,7 @@ import { BlogService } from '../../shared/blog';
   styleUrl: './blog-detail-page.scss',
 })
 export class BlogDetailPage {
-  id = input.required<string>();
+  private route = inject(ActivatedRoute);
 
-  private blogService = inject(BlogService);
-
-  blog = computed(() => this.blogService.getById(Number(this.id())));
+  blog = this.route.snapshot.data['blog'] as Blog;
 }
