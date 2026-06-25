@@ -2,11 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { BlogOverviewPage } from './feature/blog-overview-page/blog-overview-page';
-
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatToolbarModule, BlogOverviewPage],
+  imports: [RouterOutlet, MatToolbarModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
