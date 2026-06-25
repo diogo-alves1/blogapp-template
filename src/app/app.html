@@ -1,13 +1,9 @@
 <mat-toolbar color="primary">
-  <span style="font-size: 20px">
-    {{ title }}
-  </span>
+  <span>{{ title }}</span>
 
   <span class="spacer"></span>
 
-  <a mat-button routerLink="/"> Home </a>
-
-  <a mat-button routerLink="/blog/1"> Blog Detail </a>
+  <a mat-button routerLink="/" routerLinkActive="active-link"> Home </a>
 </mat-toolbar>
 
 <main class="content">
@@ -24,7 +20,7 @@
       <h2>Quick Start</h2>
 
       <ol>
-        <li><code>ng serve</code> &mdash; App lokal starten</li>
+        <li><code>ng serve</code> — App lokal starten</li>
 
         <li>
           Ordnerstruktur erkunden:
@@ -34,12 +30,12 @@
 
         <li>
           <code>ng generate component feature/my-feature</code>
-          &mdash; Neue Komponente erstellen
+          — Neue Komponente erstellen
         </li>
 
-        <li><code>npm run lint</code> &mdash; Code prüfen</li>
+        <li><code>npm run lint</code> — Code prüfen</li>
 
-        <li><code>npm test</code> &mdash; Tests ausführen</li>
+        <li><code>npm test</code> — Tests ausführen</li>
       </ol>
 
       <h2>Projektstruktur</h2>
@@ -53,17 +49,15 @@
 
       <ul>
         <li>
-          <a href="https://angular.dev" target="_blank" rel="noopener"> Angular Docs </a>
+          <a href="https://angular.dev" target="_blank"> Angular Docs </a>
         </li>
 
         <li>
-          <a href="https://material.angular.io" target="_blank" rel="noopener">
-            Angular Material
-          </a>
+          <a href="https://material.angular.io" target="_blank"> Angular Material </a>
         </li>
 
         <li>
-          <a href="https://vitest.dev" target="_blank" rel="noopener"> Vitest </a>
+          <a href="https://vitest.dev" target="_blank"> Vitest </a>
         </li>
       </ul>
     </div>

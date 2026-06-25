@@ -1,3 +1,18 @@
-<h1>Blog Detail Page</h1>
+@if (blog()) {
+  <h1>{{ blog()!.title }}</h1>
 
-<p>Hier wird später der ausgewählte Blog angezeigt.</p>
+  <p>
+    <strong>Autor:</strong>
+    {{ blog()!.author }}
+  </p>
+
+  @if (blog()!.headerImageUrl) {
+    <img [src]="blog()!.headerImageUrl" [alt]="blog()!.title" width="600" />
+  }
+
+  <p>{{ blog()!.contentPreview }}</p>
+
+  <p>Likes: {{ blog()!.likes }}</p>
+} @else {
+  <p>Blog nicht gefunden.</p>
+}

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { BlogCardComponent } from './blog-card';
-import { Blog } from '../../core/utils/blog-model';
 
 describe('BlogCardComponent', () => {
   let component: BlogCardComponent;
@@ -10,27 +10,28 @@ describe('BlogCardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [BlogCardComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(BlogCardComponent);
 
-    const testBlog: Blog = {
+    fixture.componentRef.setInput('model', {
       id: 1,
-      title: 'Test Blog',
-      contentPreview: 'Test Content',
-      author: 'Test Author',
+      title: 'Test',
+      contentPreview: 'Test',
+      author: 'Tester',
       likes: 0,
       comments: 0,
       likedByMe: false,
       createdByMe: false,
-      createdAt: '2026-01-01',
-      updatedAt: '2026-01-01',
-    };
+      createdAt: '',
+      updatedAt: '',
+    });
 
-    fixture.componentRef.setInput('model', testBlog);
+    fixture.detectChanges();
 
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

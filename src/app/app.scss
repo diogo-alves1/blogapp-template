@@ -44,4 +44,9 @@ mat-toolbar a {
   a {
     color: var(--mat-sys-primary);
   }
+
+  .active-link {
+    font-weight: bold;
+    color: var(--mat-sys-primary);
+  }
 }

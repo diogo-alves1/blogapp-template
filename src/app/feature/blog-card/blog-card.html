@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [routerLink]="['/blog', model().id]">
   @if (model().headerImageUrl) {
     <img mat-card-image [src]="model().headerImageUrl" [alt]="model().title" />
   }
@@ -20,7 +20,7 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-icon-button (click)="onLikeClick()">
+    <button mat-icon-button (click)="onLikeClick($event)">
       <mat-icon [class.liked]="model().likedByMe">
         @if (model().likedByMe) {
           favorite
@@ -31,5 +31,16 @@
     </button>
 
     <span>{{ model().likes }}</span>
+
+    <span class="spacer"></span>
+
+    <button
+      mat-button
+      color="primary"
+      [routerLink]="['/blog', model().id]"
+      (click)="$event.stopPropagation()"
+    >
+      Blog Detail
+    </button>
   </mat-card-actions>
 </mat-card>
