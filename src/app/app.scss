@@ -2,6 +2,10 @@
   flex: 1 1 auto;
 }
 
+mat-toolbar a {
+  margin-left: 8px;
+}
+
 .content {
   max-width: 800px;
   margin: 2rem auto;
