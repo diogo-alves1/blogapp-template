@@ -1,11 +1,16 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
 mat-card {
-  width: 320px;
-  transition: background-color 0.3s;
+  width: $card-width;
   cursor: pointer;
+  transition: background-color 0.3s;
+
+  @include card-shadow;
 }
 
 img {
-  height: 180px;
+  height: $card-image-height;
   object-fit: cover;
 }
 

@@ -1,9 +1,11 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
 .blog-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 2rem;
+  @include responsive-grid;
+
+  gap: $spacing-lg;
+  margin-top: $spacing-xl;
 }
 
 h1 {
@@ -12,14 +14,14 @@ h1 {
 
 code {
   background: rgba(0, 0, 0, 0.06);
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
 }
 
 pre {
   background: rgba(0, 0, 0, 0.06);
-  padding: 1rem;
-  border-radius: 8px;
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
   overflow-x: auto;
 }
 
