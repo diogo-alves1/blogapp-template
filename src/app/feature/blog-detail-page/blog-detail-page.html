@@ -11,4 +11,12 @@
 
 <p>{{ blog.contentPreview }}</p>
 
-<p>{{ blog.likes }}</p>
+<div class="likes">
+  <button mat-icon-button (click)="toggleLike()">
+    <mat-icon [class.liked]="blog.likedByMe">
+      {{ blog.likedByMe ? 'favorite' : 'favorite_border' }}
+    </mat-icon>
+  </button>
+
+  <span>{{ blog.likes }}</span>
+</div>

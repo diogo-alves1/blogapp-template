@@ -1,5 +1,6 @@
 mat-card {
   width: 320px;
+  transition: background-color 0.3s;
   cursor: pointer;
 }
 
@@ -14,4 +15,8 @@ img {
 
 .spacer {
   flex: 1 1 auto;
+}
+
+.dark-theme mat-card {
+  background: #1f1f1f;
 }
