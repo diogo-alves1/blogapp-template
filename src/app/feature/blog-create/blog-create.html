@@ -1,46 +1,40 @@
 <form (submit)="onSubmit($event)">
-
   <div>
-    <label>Titel</label>
+    <label for="title">Titel</label>
 
-    <input
-      type="text"
-      [formField]="blogForm.title"
-    />
+    <input id="title" type="text" [formField]="blogForm.title" />
 
     @if (blogForm.title().touched() && blogForm.title().invalid()) {
       @for (error of blogForm.title().errors(); track error.kind) {
-        <div style="color:red">
+        <div style="color: red">
           {{ error.message }}
         </div>
       }
     }
   </div>
 
-  <br>
+  <br />
 
   <div>
-    <label>Inhalt</label>
+    <label for="content">Inhalt</label>
 
-    <textarea
-      [formField]="blogForm.content">
-    </textarea>
+    <textarea id="content" rows="6" [formField]="blogForm.content"> </textarea>
 
     @if (blogForm.content().touched() && blogForm.content().invalid()) {
       @for (error of blogForm.content().errors(); track error.kind) {
-        <div style="color:red">
+        <div style="color: red">
           {{ error.message }}
         </div>
       }
     }
   </div>
 
-  <br>
+  <br />
 
   <div>
-    <label>Kategorie</label>
+    <label for="category">Kategorie</label>
 
-    <select [formField]="blogForm.category">
+    <select id="category" [formField]="blogForm.category">
       <option value="general">Allgemein</option>
       <option value="tech">Technik</option>
       <option value="lifestyle">Lifestyle</option>
@@ -48,19 +42,14 @@
 
     @if (blogForm.category().touched() && blogForm.category().invalid()) {
       @for (error of blogForm.category().errors(); track error.kind) {
-        <div style="color:red">
+        <div style="color: red">
           {{ error.message }}
         </div>
       }
     }
   </div>
 
-  <br>
+  <br />
 
-  <button
-    type="submit"
-    [disabled]="blogForm().invalid()">
-    Blog erstellen
-  </button>
-
+  <button type="submit" [disabled]="blogForm().invalid()">Blog erstellen</button>
 </form>

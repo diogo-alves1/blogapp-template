@@ -1,11 +1,5 @@
 import { Component, signal } from '@angular/core';
-import {
-  form,
-  required,
-  minLength,
-  maxLength,
-  FormField,
-} from '@angular/forms/signals';
+import { form, FormField, submit, required, minLength, maxLength } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-blog-create',
@@ -50,6 +44,8 @@ export class BlogCreate {
   onSubmit(event: Event): void {
     event.preventDefault();
 
-    console.log(this.blogModel());
+    submit(this.blogForm, async () => {
+      console.log(this.blogModel());
+    });
   }
 }
