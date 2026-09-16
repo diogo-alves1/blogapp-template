@@ -1,5 +1,13 @@
 import { Component, signal } from '@angular/core';
-import { form, FormField, submit, required, minLength, maxLength } from '@angular/forms/signals';
+import {
+  form,
+  FormField,
+  submit,
+  required,
+  minLength,
+  maxLength,
+  validate,
+} from '@angular/forms/signals';
 
 @Component({
   selector: 'app-blog-create',
@@ -16,6 +24,10 @@ export class BlogCreate {
   });
 
   blogForm = form(this.blogModel, (s) => {
+    // --------------------
+    // Title
+    // --------------------
+
     required(s.title, {
       message: 'Titel ist erforderlich',
     });
@@ -28,6 +40,23 @@ export class BlogCreate {
       message: 'Maximal 100 Zeichen',
     });
 
+    validate(s.title, ({ value }) => {
+      const regex = /^[A-Za-zÀ-ÿ0-9 ]+$/;
+
+      if (!regex.test(value())) {
+        return {
+          kind: 'invalidCharacters',
+          message: 'Der Titel darf nur Buchstaben, Zahlen und Leerzeichen enthalten.',
+        };
+      }
+
+      return null;
+    });
+
+    // --------------------
+    // Content
+    // --------------------
+
     required(s.content, {
       message: 'Inhalt ist erforderlich',
     });
@@ -35,6 +64,23 @@ export class BlogCreate {
     minLength(s.content, 10, {
       message: 'Mindestens 10 Zeichen',
     });
+
+    validate(s.content, ({ value, valueOf }) => {
+      const title = valueOf(s.title);
+
+      if (value().length < title.length * 2) {
+        return {
+          kind: 'contentTooShort',
+          message: 'Der Inhalt muss mindestens doppelt so lang sein wie der Titel.',
+        };
+      }
+
+      return null;
+    });
+
+    // --------------------
+    // Category
+    // --------------------
 
     required(s.category, {
       message: 'Kategorie ist erforderlich',
