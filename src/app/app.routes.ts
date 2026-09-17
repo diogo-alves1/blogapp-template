@@ -10,6 +10,10 @@ export const routes: Routes = [
     component: BlogOverviewPage,
   },
   {
+    path: 'create',
+    loadComponent: () => import('./feature/blog-create/blog-create').then((m) => m.BlogCreate),
+  },
+  {
     path: 'blog/:id',
     loadComponent: () =>
       import('./feature/blog-detail-page/blog-detail-page').then((m) => m.BlogDetailPage),
