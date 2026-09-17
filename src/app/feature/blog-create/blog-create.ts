@@ -8,11 +8,12 @@ import {
   maxLength,
   validate,
 } from '@angular/forms/signals';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-blog-create',
   standalone: true,
-  imports: [FormField],
+  imports: [FormField, RouterLink],
   templateUrl: './blog-create.html',
   styleUrl: './blog-create.scss',
 })
