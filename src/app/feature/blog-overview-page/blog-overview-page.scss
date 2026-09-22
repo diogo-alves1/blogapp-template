@@ -2,8 +2,8 @@
 @use '../../../styles/mixins' as *;
 
 .blog-grid {
-  @include responsive-grid;
-
+  display: flex;
+  flex-wrap: wrap;
   gap: $spacing-lg;
   margin-top: $spacing-xl;
 }
