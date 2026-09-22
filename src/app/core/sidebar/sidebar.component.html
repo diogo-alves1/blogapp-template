@@ -27,7 +27,11 @@
         </button>
       }
 
-      <span>HFTM Web Applications (IN353)</span>
+      @if (isHandset$ | async) {
+        <span>HFTM</span>
+      } @else {
+        <span>HFTM Web Applications (IN353)</span>
+      }
 
       <span class="spacer"></span>
 

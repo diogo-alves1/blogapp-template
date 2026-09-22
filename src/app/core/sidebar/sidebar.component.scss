@@ -15,5 +15,27 @@
 }
 
 .active-link {
-  font-weight: bold;
+  font-weight: 600;
+  color: var(--mat-sys-primary);
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+mat-nav-list a {
+  border-radius: 8px;
+  margin: 0.25rem 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .content {
+    padding: 1rem;
+  }
+
+  .sidenav {
+    width: 220px;
+  }
 }
