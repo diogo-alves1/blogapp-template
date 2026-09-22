@@ -1,6 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
-
 import { Blog } from '../../core/utils/blog-model';
 import { BlogCardComponent } from '../blog-card/blog-card';
 import { BlogService } from '../../shared/blog';
@@ -8,7 +6,7 @@ import { BlogService } from '../../shared/blog';
 @Component({
   selector: 'app-blog-overview-page',
   standalone: true,
-  imports: [BlogCardComponent, RouterLink],
+  imports: [BlogCardComponent],
   templateUrl: './blog-overview-page.html',
   styleUrl: './blog-overview-page.scss',
 })

@@ -9,10 +9,12 @@ export const routes: Routes = [
     path: '',
     component: BlogOverviewPage,
   },
+
   {
     path: 'create',
     loadComponent: () => import('./feature/blog-create/blog-create').then((m) => m.BlogCreate),
   },
+
   {
     path: 'blog/:id',
     loadComponent: () =>
@@ -21,6 +23,7 @@ export const routes: Routes = [
       blog: blogResolver,
     },
   },
+
   {
     path: '**',
     component: NotFoundPage,
