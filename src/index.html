@@ -3,15 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <title>Angular Template</title>
+
     <base href="/" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data: https:;
+    font-src 'self' https://fonts.gstatic.com;
+    style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    object-src 'none';
+    base-uri 'self';
+    "
+    />
+
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   </head>
+
   <body class="mat-typography">
     <app-root></app-root>
   </body>
