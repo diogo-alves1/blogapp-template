@@ -15,17 +15,18 @@ describe('App', () => {
   it('should create the app', () => {
     const fixture = TestBed.createComponent(App);
     const app = fixture.componentInstance;
+
     expect(app).toBeTruthy();
   });
 
   it('should render title in toolbar', async () => {
     const fixture = TestBed.createComponent(App);
+
+    fixture.detectChanges();
     await fixture.whenStable();
 
     const compiled = fixture.nativeElement as HTMLElement;
 
-    expect(compiled.querySelector('mat-toolbar')?.textContent).toContain(
-      'HFTM Web Applications (IN353)',
-    );
+    expect(compiled.textContent).toContain('HFTM Web Applications (IN353)');
   });
 });

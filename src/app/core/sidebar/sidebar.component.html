@@ -1,0 +1,45 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>Blog</mat-toolbar>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="active-link" (click)="drawer.close()">
+        Home
+      </a>
+
+      <a mat-list-item routerLink="/create" routerLinkActive="active-link" (click)="drawer.close()">
+        Neuer Blog
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      @if (isHandset$ | async) {
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      }
+
+      @if (isHandset$ | async) {
+        <span>HFTM</span>
+      } @else {
+        <span>HFTM Web Applications (IN353)</span>
+      }
+
+      <span class="spacer"></span>
+
+      <ng-content></ng-content>
+    </mat-toolbar>
+
+    <main class="content">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

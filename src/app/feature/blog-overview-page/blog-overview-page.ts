@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-
 import { Blog } from '../../core/utils/blog-model';
 import { BlogCardComponent } from '../blog-card/blog-card';
 import { BlogService } from '../../shared/blog';
