@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { vi } from 'vitest';
 
 import { BlogCardComponent } from './blog-card';
 
@@ -17,8 +18,8 @@ describe('BlogCardComponent', () => {
 
     fixture.componentRef.setInput('model', {
       id: 1,
-      title: 'Test',
-      contentPreview: 'Test',
+      title: 'Test Blog',
+      contentPreview: 'Test Preview',
       author: 'Tester',
       likes: 0,
       comments: 0,
@@ -29,12 +30,26 @@ describe('BlogCardComponent', () => {
     });
 
     fixture.detectChanges();
+    await fixture.whenStable();
 
     component = fixture.componentInstance;
-    await fixture.whenStable();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display blog title', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.textContent).toContain('Test Blog');
+  });
+
+  it('should emit likeClicked event', () => {
+    const emitSpy = vi.spyOn(component.likeClicked, 'emit');
+
+    component.onLikeClick(new MouseEvent('click'));
+
+    expect(emitSpy).toHaveBeenCalledWith(1);
   });
 });
